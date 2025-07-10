@@ -1,1061 +1,1 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📘 أكاديمية الظل الرقمي</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Tajawal', sans-serif;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translatey(0px); }
-            50% { transform: translatey(-20px); }
-            100% { transform: translatey(0px); }
-        }
-        
-        .slide-in {
-            animation: slideIn 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-        
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .tech-card {
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .tech-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .code-example {
-            background: #1e1e1e;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            overflow-x: auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .code-example pre {
-            color: #e6e6e6;
-            margin: 0;
-            direction: ltr;
-            text-align: left;
-        }
-        
-        .interactive-demo {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            color: white;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .interactive-demo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 4px;
-            transition: width 2s ease;
-        }
-        
-        .nav-sticky {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .section-padding {
-            padding: 80px 0;
-        }
-        
-        .typing-animation {
-            overflow: hidden;
-            border-right: 3px solid #667eea;
-            white-space: nowrap;
-            animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #667eea; }
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 20px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        
-        .close {
-            color: #aaa;
-            float: left;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .close:hover {
-            color: black;
-        }
-        
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        .skill-meter {
-            background: #f0f0f0;
-            border-radius: 10px;
-            padding: 3px;
-            margin: 10px 0;
-        }
-        
-        .skill-meter-fill {
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            height: 25px;
-            border-radius: 7px;
-            transition: width 2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav id="navbar" class="bg-white shadow-lg transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <i class="fas fa-code text-3xl gradient-text mr-3"></i>
-                    <span class="text-2xl font-bold gradient-text">📘 أكاديمية الظل الرقمي</span>
-                </div>
-                <div class="hidden md:flex space-x-8 space-x-reverse">
-                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">الرئيسية</a>
-                    <a href="#technologies" class="text-gray-700 hover:text-blue-600 transition-colors">التقنيات</a>
-                    <a href="#courses" class="text-gray-700 hover:text-blue-600 transition-colors">المنهاج</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">التواصل</a>
-                </div>
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="gradient-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-20 left-20 w-20 h-20 bg-white rounded-full float-animation"></div>
-            <div class="absolute top-40 right-40 w-16 h-16 bg-white rounded-full float-animation" style="animation-delay: 2s;"></div>
-            <div class="absolute bottom-20 left-1/3 w-24 h-24 bg-white rounded-full float-animation" style="animation-delay: 4s;"></div>
-        </div>
-        
-        <div class="max-w-4xl mx-auto text-center px-4 z-10">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
-                تعلم برمجة الويب
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 slide-in" style="animation-delay: 0.3s;">
-                من الصفر إلى الاحتراف مع غيث حسن
-            </p>
-            <div class="text-lg md:text-xl mb-12 slide-in typing-animation" style="animation-delay: 0.6s;">
-                HTML • CSS • JavaScript • Flask • React • Vue.js
-            </div>
-            <button onclick="scrollToSection('technologies')" class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 slide-in" style="animation-delay: 0.9s;">
-                ابدأ رحلتك الآن
-                <i class="fas fa-arrow-down mr-2"></i>
-            </button>
-        </div>
-    </section>
-
-    <!-- Technologies Section -->
-    <section id="technologies" class="section-padding bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">التقنيات التي ستتعلمها</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    رحلة شاملة من أساسيات الويب إلى أحدث التقنيات والإطارات
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- HTML Card -->
-                <div class="tech-card p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-300">
-                    <div class="text-6xl mb-4">
-                        <i class="fab fa-html5 text-orange-500"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">HTML5</h3>
-                    <p class="text-gray-600 mb-6">لغة الترميز الأساسية لبناء هيكل صفحات الويب</p>
-                    <div class="skill-meter">
-                        <div class="skill-meter-fill" style="width: 0%;" data-width="95%">مبتدئ إلى متقدم</div>
-                    </div>
-                    <button onclick="openModal('html-modal')" class="mt-4 bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors">
-                        تعلم المزيد
-                    </button>
-                </div>
-
-                <!-- CSS Card -->
-                <div class="tech-card p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-300">
-                    <div class="text-6xl mb-4">
-                        <i class="fab fa-css3-alt text-blue-500"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">CSS3</h3>
-                    <p class="text-gray-600 mb-6">تنسيق وتصميم صفحات الويب بأحدث التقنيات</p>
-                    <div class="skill-meter">
-                        <div class="skill-meter-fill" style="width: 0%;" data-width="90%">التصميم المتقدم</div>
-                    </div>
-                    <button onclick="openModal('css-modal')" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors">
-                        تعلم المزيد
-                    </button>
-                </div>
-
-                <!-- JavaScript Card -->
-                <div class="tech-card p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-300">
-                    <div class="text-6xl mb-4">
-                        <i class="fab fa-js-square text-yellow-500"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">JavaScript</h3>
-                    <p class="text-gray-600 mb-6">إضافة التفاعل والديناميكية لمواقع الويب</p>
-                    <div class="skill-meter">
-                        <div class="skill-meter-fill" style="width: 0%;" data-width="85%">البرمجة التفاعلية</div>
-                    </div>
-                    <button onclick="openModal('js-modal')" class="mt-4 bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors">
-                        تعلم المزيد
-                    </button>
-                </div>
-
-                <!-- Flask Card -->
-                <div class="tech-card p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-300">
-                    <div class="text-6xl mb-4">
-                        <i class="fab fa-python text-green-500"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Flask</h3>
-                    <p class="text-gray-600 mb-6">إطار عمل Python لبناء تطبيقات الويب</p>
-                    <div class="skill-meter">
-                        <div class="skill-meter-fill" style="width: 0%;" data-width="80%">الخادم والقواعد</div>
-                    </div>
-                    <button onclick="openModal('flask-modal')" class="mt-4 bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors">
-                        تعلم المزيد
-                    </button>
-                </div>
-
-                <!-- React Card -->
-                <div class="tech-card p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-300">
-                    <div class="text-6xl mb-4">
-                        <i class="fab fa-react text-cyan-500"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">React</h3>
-                    <p class="text-gray-600 mb-6">مكتبة JavaScript لبناء واجهات المستخدم</p>
-                    <div class="skill-meter">
-                        <div class="skill-meter-fill" style="width: 0%;" data-width="75%">التطبيقات الحديثة</div>
-                    </div>
-                    <button onclick="openModal('react-modal')" class="mt-4 bg-cyan-500 text-white px-6 py-2 rounded-full hover:bg-cyan-600 transition-colors">
-                        تعلم المزيد
-                    </button>
-                </div>
-
-                <!-- Vue.js Card -->
-                <div class="tech-card p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-300">
-                    <div class="text-6xl mb-4">
-                        <i class="fab fa-vuejs text-green-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Vue.js</h3>
-                    <p class="text-gray-600 mb-6">إطار عمل JavaScript التقدمي وسهل التعلم</p>
-                    <div class="skill-meter">
-                        <div class="skill-meter-fill" style="width: 0%;" data-width="70%">التطوير السريع</div>
-                    </div>
-                    <button onclick="openModal('vue-modal')" class="mt-4 bg-green-400 text-white px-6 py-2 rounded-full hover:bg-green-500 transition-colors">
-                        تعلم المزيد
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Demo Section -->
-    <section class="section-padding gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">تطبيقات تفاعلية</h2>
-                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
-                    اكتشف قوة التقنيات من خلال أمثلة عملية وتفاعلية
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Interactive Color Changer -->
-                <div class="bg-white rounded-2xl p-8 shadow-2xl">
-                    <h3 class="text-2xl font-bold mb-4 text-center">مغير الألوان التفاعلي</h3>
-                    <div id="color-demo" class="w-full h-40 bg-blue-500 rounded-lg mb-4 transition-all duration-500 flex items-center justify-center text-white font-bold text-xl cursor-pointer">
-                        اضغط لتغيير اللون!
-                    </div>
-                    <div class="flex justify-center space-x-4 space-x-reverse">
-                        <button onclick="changeColor('red')" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">أحمر</button>
-                        <button onclick="changeColor('green')" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">أخضر</button>
-                        <button onclick="changeColor('blue')" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">أزرق</button>
-                        <button onclick="changeColor('purple')" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors">بنفسجي</button>
-                    </div>
-                </div>
-
-                <!-- Interactive Counter -->
-                <div class="bg-white rounded-2xl p-8 shadow-2xl">
-                    <h3 class="text-2xl font-bold mb-4 text-center">عداد تفاعلي</h3>
-                    <div class="text-center">
-                        <div id="counter" class="text-6xl font-bold gradient-text mb-8">0</div>
-                        <div class="flex justify-center space-x-4 space-x-reverse">
-                            <button onclick="decrementCounter()" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <button onclick="resetCounter()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
-                                <i class="fas fa-undo"></i>
-                            </button>
-                            <button onclick="incrementCounter()" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Learning Path Section -->
-    <section id="courses" class="section-padding bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">مسار التعلم المتكامل</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    خطة دراسية متدرجة من الأساسيات إلى المستوى المتقدم
-                </p>
-            </div>
-
-            <div class="max-w-4xl mx-auto">
-                <!-- Level 1 -->
-                <div class="mb-12">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">1</div>
-                        <h3 class="text-2xl font-bold">المستوى الأول: الأساسيات</h3>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl mr-16">
-                        <h4 class="text-xl font-semibold mb-3">HTML الأساسي</h4>
-                        <ul class="text-gray-600 space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>هيكل الصفحة الأساسي</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>العناصر والخصائص</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>الروابط والصور</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>الجداول والنماذج</li>
-                        </ul>
-                        <div class="mt-4">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 0%;" data-width="100%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Level 2 -->
-                <div class="mb-12">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">2</div>
-                        <h3 class="text-2xl font-bold">المستوى الثاني: التصميم</h3>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl mr-16">
-                        <h4 class="text-xl font-semibold mb-3">CSS المتقدم</h4>
-                        <ul class="text-gray-600 space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>التخطيط والتنسيق</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>الرسوم المتحركة والانتقالات</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>التصميم المتجاوب</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Flexbox و Grid</li>
-                        </ul>
-                        <div class="mt-4">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 0%;" data-width="80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Level 3 -->
-                <div class="mb-12">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">3</div>
-                        <h3 class="text-2xl font-bold">المستوى الثالث: التفاعل</h3>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl mr-16">
-                        <h4 class="text-xl font-semibold mb-3">JavaScript الديناميكي</h4>
-                        <ul class="text-gray-600 space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>الأساسيات والمتغيرات</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>التحكم في DOM</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>الأحداث والتفاعلات</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>AJAX و APIs</li>
-                        </ul>
-                        <div class="mt-4">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 0%;" data-width="60%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Level 4 -->
-                <div class="mb-12">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">4</div>
-                        <h3 class="text-2xl font-bold">المستوى الرابع: التطبيقات المتقدمة</h3>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl mr-16">
-                        <h4 class="text-xl font-semibold mb-3">React & Vue.js</h4>
-                        <ul class="text-gray-600 space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>المكونات والحالة</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>التوجيه والإدارة</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>إدارة البيانات</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>نشر التطبيقات</li>
-                        </ul>
-                        <div class="mt-4">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 0%;" data-width="40%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section-padding gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">تواصل معي</h2>
-                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
-                    ابدأ رحلتك في تعلم برمجة الويب اليوم
-                </p>
-            </div>
-
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <!-- Contact Info -->
-                        <div>
-                            <h3 class="text-2xl font-bold mb-6 gradient-text">معلومات التواصل</h3>
-                            <div class="space-y-6">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-phone text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold">رقم الهاتف</h4>
-                                        <p class="text-gray-600">+963934309818</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-envelope text-red-600"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold">البريد الإلكتروني</h4>
-                                        <p class="text-gray-600">ghaithhasan963@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fab fa-instagram text-purple-600"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold">إنستغرام</h4>
-                                        <p class="text-gray-600">قريباً...</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fab fa-facebook text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold">فيسبوك</h4>
-                                        <p class="text-gray-600">قريباً...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contact Form -->
-                        <div>
-                            <h3 class="text-2xl font-bold mb-6 gradient-text">أرسل رسالة</h3>
-                            <form id="contact-form" class="space-y-6">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">الاسم</label>
-                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="أدخل اسمك">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">البريد الإلكتروني</label>
-                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="أدخل بريدك الإلكتروني">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">الموضوع</label>
-                                    <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                        <option value="">اختر الموضوع</option>
-                                        <option value="consultation">استشارة</option>
-                                        <option value="course">معلومات عن الدورة</option>
-                                        <option value="support">دعم فني</option>
-                                        <option value="other">أخرى</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">الرسالة</label>
-                                    <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="اكتب رسالتك هنا..."></textarea>
-                                </div>
-                                <button type="submit" class="w-full gradient-bg text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-                                    إرسال الرسالة
-                                    <i class="fas fa-paper-plane mr-2"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="flex justify-center items-center mb-6">
-                    <i class="fas fa-code text-3xl gradient-text mr-3"></i>
-                    <span class="text-2xl font-bold">📘 أكاديمية الظل الرقمي</span>
-                </div>
-                <p class="text-gray-400 mb-8">
-                    رحلتك في تعلم برمجة الويب تبدأ هنا
-                </p>
-                <div class="flex justify-center space-x-6 space-x-reverse mb-8">
-                    <a href="tel:+963934309818" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fas fa-phone text-2xl"></i>
-                    </a>
-                    <a href="mailto:ghaithhasan963@gmail.com" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fas fa-envelope text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-facebook text-2xl"></i>
-                    </a>
-                </div>
-                <div class="border-t border-gray-800 pt-8">
-                    <p class="text-gray-400">
-                        © 2024 أكاديمية 📘 أكاديمية الظل الرقمي. جميع الحقوق محفوظة.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modals -->
-    <!-- HTML Modal -->
-    <div id="html-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="text-3xl font-bold mb-4 gradient-text">HTML5 - لغة بناء الويب</h2>
-            <p class="text-gray-600 mb-6">
-                HTML (HyperText Markup Language) هي لغة الترميز الأساسية لإنشاء صفحات الويب. تعلم كيفية بناء هيكل صفحات الويب من الصفر.
-            </p>
-            <div class="code-example">
-                <pre>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ar"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;صفحتي الأولى&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;مرحباً بالعالم!&lt;/h1&gt;
-    &lt;p&gt;هذه أول صفحة HTML لي&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">ما ستتعلمه:</h3>
-            <ul class="text-gray-600 space-y-2">
-                <li><i class="fas fa-check text-green-500 mr-2"></i>العناصر والخصائص الأساسية</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>بناء النماذج والجداول</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>إدراج الصور والروابط</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>الهيكل الدلالي للصفحة</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- CSS Modal -->
-    <div id="css-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="text-3xl font-bold mb-4 gradient-text">CSS3 - تصميم الويب المتقدم</h2>
-            <p class="text-gray-600 mb-6">
-                CSS (Cascading Style Sheets) هي لغة تنسيق صفحات الويب. تعلم كيفية جعل مواقعك جميلة وجذابة.
-            </p>
-            <div class="code-example">
-                <pre>
-.header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.button {
-    background: #667eea;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-.button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}</pre>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">ما ستتعلمه:</h3>
-            <ul class="text-gray-600 space-y-2">
-                <li><i class="fas fa-check text-green-500 mr-2"></i>التخطيط المتجاوب</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>الرسوم المتحركة والانتقالات</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>Flexbox و Grid</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>المتغيرات والوظائف</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- JavaScript Modal -->
-    <div id="js-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="text-3xl font-bold mb-4 gradient-text">JavaScript - قوة التفاعل</h2>
-            <p class="text-gray-600 mb-6">
-                JavaScript هي لغة البرمجة التي تجعل مواقع الويب تفاعلية وديناميكية. تعلم كيفية إضافة السلوك والتفاعل لمواقعك.
-            </p>
-            <div class="code-example">
-                <pre>
-// تغيير النص عند الضغط على الزر
-function changeText() {
-    const element = document.getElementById('myText');
-    element.textContent = 'النص تم تغييره!';
-    element.style.color = '#667eea';
-}
-
-// إضافة مستمع الأحداث
-document.getElementById('myButton').addEventListener('click', changeText);
-
-// التحقق من صحة النموذج
-function validateForm() {
-    const email = document.getElementById('email').value;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (!emailRegex.test(email)) {
-        alert('الرجاء إدخال بريد إلكتروني صحيح');
-        return false;
-    }
-    return true;
-}</pre>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">ما ستتعلمه:</h3>
-            <ul class="text-gray-600 space-y-2">
-                <li><i class="fas fa-check text-green-500 mr-2"></i>الأساسيات والمتغيرات</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>التحكم في DOM</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>الأحداث والتفاعلات</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>AJAX وتبادل البيانات</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Flask Modal -->
-    <div id="flask-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="text-3xl font-bold mb-4 gradient-text">Flask - تطوير الخادم</h2>
-            <p class="text-gray-600 mb-6">
-                Flask هو إطار عمل Python مرن وقوي لبناء تطبيقات الويب. تعلم كيفية إنشاء خوادم الويب وإدارة البيانات.
-            </p>
-            <div class="code-example">
-            </div>
-            <h3 class="text-xl font-semibold mb-3">ما ستتعلمه:</h3>
-            <ul class="text-gray-600 space-y-2">
-                <li><i class="fas fa-check text-green-500 mr-2"></i>إنشاء APIs وخوادم الويب</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>إدارة قواعد البيانات</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>المصادقة والترخيص</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>نشر التطبيقات</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- React Modal -->
-    <div id="react-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="text-3xl font-bold mb-4 gradient-text">React - واجهات المستخدم الحديثة</h2>
-            <p class="text-gray-600 mb-6">
-                React هي مكتبة JavaScript قوية لبناء واجهات المستخدم التفاعلية. تعلم كيفية إنشاء تطبيقات ويب حديثة وسريعة.
-            </p>
-            <div class="code-example">
-                <pre>
-import React, { useState } from 'react';
-
-function Counter() {
-    const [count, setCount] = useState(0);
-
-    return (
-        &lt;div className="counter"&gt;
-            &lt;h2&gt;العداد: {count}&lt;/h2&gt;
-            &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
-                زيادة
-            &lt;/button&gt;
-            &lt;button onClick={() =&gt; setCount(count - 1)}&gt;
-                تقليل
-            &lt;/button&gt;
-        &lt;/div&gt;
-    );
-}
-
-export default Counter;</pre>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">ما ستتعلمه:</h3>
-            <ul class="text-gray-600 space-y-2">
-                <li><i class="fas fa-check text-green-500 mr-2"></i>المكونات والـ Props</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>إدارة الحالة</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>الخطافات (Hooks)</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>التوجيه والتنقل</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Vue Modal -->
-    <div id="vue-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="text-3xl font-bold mb-4 gradient-text">Vue.js - التطوير التقدمي</h2>
-            <p class="text-gray-600 mb-6">
-                Vue.js هو إطار عمل JavaScript تقدمي وسهل التعلم. تعلم كيفية بناء تطبيقات تفاعلية بطريقة بسيطة وفعالة.
-            </p>
-            <div class="code-example">
-                <pre>
-&lt;template&gt;
-  &lt;div class="todo-app"&gt;
-    &lt;h1&gt;قائمة المهام&lt;/h1&gt;
-    &lt;input v-model="newTodo" @keyup.enter="addTodo" placeholder="أضف مهمة جديدة"&gt;
-    &lt;ul&gt;
-      &lt;li v-for="todo in todos" :key="todo.id"&gt;
-        {{ todo.text }}
-        &lt;button @click="removeTodo(todo.id)"&gt;حذف&lt;/button&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-export default {
-  data() {
-    return {
-      newTodo: '',
-      todos: []
-    }
-  },
-  methods: {
-    addTodo() {
-      if (this.newTodo.trim()) {
-        this.todos.push({
-          id: Date.now(),
-          text: this.newTodo
-        });
-        this.newTodo = '';
-      }
-    },
-    removeTodo(id) {
-      this.todos = this.todos.filter(todo =&gt; todo.id !== id);
-    }
-  }
-}
-&lt;/script&gt;</pre>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">ما ستتعلمه:</h3>
-            <ul class="text-gray-600 space-y-2">
-                <li><i class="fas fa-check text-green-500 mr-2"></i>التوجيهات والبيانات المربوطة</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>إدارة الحالة مع Vuex</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>التوجيه مع Vue Router</li>
-                <li><i class="fas fa-check text-green-500 mr-2"></i>التطبيقات أحادية الصفحة</li>
-            </ul>
-        </div>
-    </div>
-
-    <script>
-        // Smooth scrolling
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Navigation scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-sticky', 'bg-white', 'shadow-lg');
-            } else {
-                navbar.classList.remove('nav-sticky');
-            }
-        });
-
-        // Animate elements on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('slide-in');
-                }
-            });
-        });
-
-        document.querySelectorAll('.tech-card').forEach((card) => {
-            observer.observe(card);
-        });
-
-        // Animate progress bars
-        const progressObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const progressFills = entry.target.querySelectorAll('.progress-fill, .skill-meter-fill');
-                    progressFills.forEach((fill) => {
-                        const width = fill.getAttribute('data-width');
-                        setTimeout(() => {
-                            fill.style.width = width;
-                        }, 500);
-                    });
-                }
-            });
-        });
-
-        document.querySelectorAll('.section-padding').forEach((section) => {
-            progressObserver.observe(section);
-        });
-
-        // Interactive color changer
-        const colors = ['#ef4444', '#10b981', '#3b82f6', '#8b5cf6', '#f59e0b'];
-        let currentColorIndex = 0;
-
-        function changeColor(color) {
-            const demo = document.getElementById('color-demo');
-            const colorMap = {
-                'red': '#ef4444',
-                'green': '#10b981',
-                'blue': '#3b82f6',
-                'purple': '#8b5cf6'
-            };
-            demo.style.backgroundColor = colorMap[color];
-        }
-
-        document.getElementById('color-demo').addEventListener('click', function() {
-            currentColorIndex = (currentColorIndex + 1) % colors.length;
-            this.style.backgroundColor = colors[currentColorIndex];
-        });
-
-        // Interactive counter
-        let counter = 0;
-        const counterElement = document.getElementById('counter');
-
-        function incrementCounter() {
-            counter++;
-            counterElement.textContent = counter;
-            counterElement.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                counterElement.style.transform = 'scale(1)';
-            }, 200);
-        }
-
-        function decrementCounter() {
-            counter--;
-            counterElement.textContent = counter;
-            counterElement.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                counterElement.style.transform = 'scale(1)';
-            }, 200);
-        }
-
-        function resetCounter() {
-            counter = 0;
-            counterElement.textContent = counter;
-            counterElement.style.transform = 'rotate(360deg)';
-            setTimeout(() => {
-                counterElement.style.transform = 'rotate(0deg)';
-            }, 500);
-        }
-
-        // Modal functionality
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-
-        // Close modal with close button
-        document.querySelectorAll('.close').forEach(closeBtn => {
-            closeBtn.addEventListener('click', function() {
-                this.closest('.modal').style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // Contact form handling
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            if (!name || !email || !subject || !message) {
-                alert('الرجاء ملء جميع الحقول المطلوبة');
-                return;
-            }
-
-            // Simulate form submission
-            alert('تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.');
-            this.reset();
-        });
-
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            // Add mobile menu functionality here
-            alert('قائمة الجوال - قيد التطوير');
-        });
-
-        // Add some interactive effects
-        document.querySelectorAll('.tech-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Typing effect for hero section
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
-
-        // Initialize animations on page load
-        window.addEventListener('load', function() {
-            // Add any initialization code here
-            console.log('أكاديمية غيث حسن - صفحة تعلم برمجة الويب جاهزة!');
-        });
-    </script> 
-   <script id="html_badge_script1">
-        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDhq%2BsEnESYNoF4g8fXYjujePdme%2BZ%2FbkNYAH9hpIKl9nchALxq4lqw4P2ZaYDO%2B621e%2FynrEdEfD%2Fkf6s%2Fb5GvxVSVdHHRwo6Q1Z5xyp5s4HlLpEi4xfHp3obgxDRKy94AReZuWM5lWqN1dR0RwnAVTE%2Bi18mwT0MPV6%2BxmeAmG5m4vkKLEHyGpyUKkJQw6oPOpZuNHjAAZiq0b2u12bFqUQNtgP5alPULn%2BMXKB3nWaOhz%2Fwpd24kAy6KxhjMuX2iZYVnHVxsKpD0J7Md2F3gtbGnnX%2FSiQ%2Bb6tcX%2Fh%2FY9aQUgHFD8Wh3CbUx2QRcfDLBjAmaubZiEmoRrBvoQl0VToCKlCMdHu0uDQ5mskO9M9Lz2Ych%2BGeF5eBhFILQbPg0SvWZrks%2FYiyQ5AOfxE2GNGARqwwkxN2p6EL7LKMRcB5PvczD4ryYjw1R02dhpCHn0I%2FkjV9huq5d%2Bc31Vix6ktI3gKHeEBtqOA0DcPNJROmxuGpBTmBfOJoGlbxQJnJg%3D%3D";
-        window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDhq+sEnESYNoF4g8fXYjujePdme+Z/bkNYAH9hpIKl9nchALxq4lqw4P2ZaYDO+621e/ynrEdEfD/kf6s/b5GvxVSVdHHRwo6Q1Z5xyp5s4HlLpEi4xfHp3obgxDRKy94AReZuWM5lWqN1dR0RwnAVTE+i18mwT0MPV6+xmeAmG5m4vkKLEHyGpyUKkJQw6oPOpZuNHjAAZiq0b2u12bFqUQNtgP5alPULn+MXKB3nWaOhz/wpd24kAy6KxhjMuX2iZYVnHVxsKpD0J7Md2F3gtbGnnX/SiQ+b6tcX/h/Y9aQUgHFD8Wh3CbUx2QRcfDLBjAmaubZiEmoRrBvoQl0VToCKlCMdHu0uDQ5mskO9M9Lz2Ych+GeF5eBhFILQbPg0SvWZrks/YiyQ5AOfxE2GNGARqwwkxN2p6EL7LKMRcB5PvczD4ryYjw1R02dhpCHn0I/kjV9huq5d+c31Vix6ktI3gKHeEBtqOA0DcPNJROmxuGpBTmBfOJoGlbxQJnJg==";
-    </script>
-    
-        <script id="html_badge_script2" src="https://www.genspark.ai/html_badge.js"></script>
-        
-    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
-  </body>
-</html>

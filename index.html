@@ -12,7 +12,7 @@
     body {
       font-family: 'Cairo', sans-serif;
       scroll-behavior: smooth;
-      background: linear-gradient(-45deg, #0f1114, #14161b, #1a1c23, #0c0d0f);
+      background: linear-gradient(to right , rgb(71, 66, 92) , rgb(42, 43, 53) , rgb(6, 4, 24));
       background-size: 400% 400%;
       animation: gradientBG 18s ease infinite;
     }
@@ -34,7 +34,25 @@
       to {opacity: 1; transform: translateY(0);}
     }
     #card{
-        background-color: red;
+        position: absolute;
+        width: 70vw;
+        height: 25vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #logo{
+        margin: auto;
+        border-radius: 20px;
+        width: 30vw;
+        height: 15vh;
+        background-image: url(logo.png) ;
+        background-size: 30vw 15vh;
+        position:fixed;
+        left: 50%;
+        transform: translatex(-50%);
+    }
+    #contain{
+        position: relative;
     }
   </style>
 </head>
@@ -44,7 +62,9 @@
   <div id="toast" class="fixed bottom-4 right-4 bg-purple-700 text-white px-4 py-2 rounded hidden shadow-md z-50">
     👋 أهلاً بك في منصة غيث الشخصية!
   </div>
-
+    <div id="logo">
+       <!-- <img id="img" title="img" src="logo.png">  -->
+    </div>
   <!-- المقدمة -->
   <section class="min-h-screen flex items-center justify-center px-6 fade-in">
     <div class="text-center max-w-xl glass p-8 rounded-xl shadow-xl">
@@ -68,8 +88,8 @@
   <section id="projects" class="py-20 px-6 fade-in">
     <div  class="max-w-5xl mx-auto text-center">
       <h2 class="text-2xl font-bold text-indigo-400 mb-8">📂 المشاريع البارزة</h2>
-      <div   class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
+      <div id="contain"  class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div id="card" class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
           <h3 class="text-lg font-semibold mb-2">نظام تسجيل دخول ديناميكي</h3>
           <p class="text-sm text-gray-300 mb-3">واجهة عصرية + قاعدة بيانات + حماية كاملة باستخدام Flask وTailwind.</p>
           <a href="https://github.com/ghaithhasan963/login-" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على GitHub →</a>
@@ -80,8 +100,8 @@
     <section id="projects" class="py-20 px-6 fade-in">
     <div  class="max-w-5xl mx-auto text-center">
      <h2 class="text-2xl font-bold text-indigo-400 mb-8"></h2> 
-       <div  class="grid grid-cols-1 md:grid-cols-2 gap-6" >
-         <div  class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
+       <div  id="contain"class="grid grid-cols-1 md:grid-cols-2 gap-6" >
+         <div  id="card" class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
            <h3 class="text-lg font-semibold mb-2">موقع لتعليم الامن السيبراني باسلوب ديناميكي تففاعلي</h3>
            <p class="text-sm text-gray-300 mb-3">واجهة عصرية + قاعدة بيانات + Flask+js.</p>
            <a href="https://github.com/ghaithhasan963/acadamy-chadow" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على GitHub →</a>
@@ -92,16 +112,17 @@
       <section id="projects" class="py-20 px-6 fade-in">
     <div  class="max-w-5xl mx-auto text-center">
      <h2 class="text-2xl font-bold text-indigo-400 mb-8"></h2>
-      <div   class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
+      <div id="contain"  class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div id="card" class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
           <h3 class="text-lg font-semibold mb-2">موقع لتعليم برمجة الويب </h3>
           <p class="text-sm text-gray-300 mb-3">واجهة عصرية +react + veu.js +تصميم ديناميكي+js.</p>
-          <a href="https://github.com/ghaithhasan963/login-dashboard-app" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على GitHub →</a>
+          <a href="web_programming_academy.html" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على GitHub →</a>
         </div>
       </div>
     </div>
   </section><hr>
   </section>
+  <br><br><br><br><br><br>
   <!-- إحصائيات -->
   <section class="py-20 px-6 fade-in text-center">
     <h2 class="text-xl font-bold text-purple-400 mb-6">📊 إنجازاتي التقنية</h2>

@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <style>
     body {
       font-family: 'Cairo', sans-serif;
@@ -32,182 +33,141 @@
       from {opacity: 0; transform: translateY(30px);}
       to {opacity: 1; transform: translateY(0);}
     }
-    #card{
-        position: absolute;
-        width: 70vw;
-        height: 27vh;
-        left: 50%;
-        transform: translateX(-50%);
+    #card {
+      margin: auto;
+      width: 100%;
     }
-    #logo{
-        margin: auto;
-        border-radius: 20px;
-        width: 30vw;
-        height: 15vh;
-        background-image: url(logo.png) ;
-        background-size: 30vw 15vh;
-        position:fixed;
-        left: 50%;
-        transform: translatex(-50%);
-    }
-    #contain{
-        position: relative;
-    }
-    #a{
-        z-index: 10;
+    #logo {
+      margin: auto;
+      border-radius: 20px;
+      width: 30vw;
+      height: 15vh;
+      background-image: url('logo.png');
+      background-size: cover;
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
     }
   </style>
 </head>
-
 <body class="text-white relative">
-  <!-- إشعار ترحيبي -->
-  <div id="toast" class="fixed bottom-4 right-4 bg-purple-700 text-white px-4 py-2 rounded hidden shadow-md z-50">
-    👋 أهلاً بك في منصة غيث الشخصية!
+
+<!-- شعار الموقع -->
+<div id="logo"></div>
+
+<!-- المقدمة -->
+<section class="min-h-screen flex items-center justify-center px-6 fade-in">
+  <div class="text-center max-w-xl glass p-8 rounded-xl shadow-xl">
+    <h1 class="text-5xl font-bold mb-4 text-gray-100">GHAITH HASAN</h1>
+    <p id="typewriter" class="text-lg text-purple-300 mb-6"></p>
+    <a href="#about" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:scale-[1.03] transition">تعرف علي ↓</a>
   </div>
-    <div id="logo">
-       <!-- <img id="img" title="img" src="logo.png">  -->
-    </div>
-  <!-- المقدمة -->
-  <section class="min-h-screen flex items-center justify-center px-6 fade-in">
-    <div class="text-center max-w-xl glass p-8 rounded-xl shadow-xl">
-      <h1 class="text-5xl font-bold mb-4 text-gray-100">GHAITH HASAN</h1>
-      <p id="typewriter" class="text-lg text-purple-300 mb-6"></p>
-      <a href="#about" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:scale-[1.03] transition">تعرف علي ↓</a>
-    </div>
-  </section>
+</section>
 
-  <!-- من أنا -->
-  <section id="about" class="py-20 px-6 fade-in">
-    <div class="max-w-3xl mx-auto glass p-8 rounded-xl text-center">
-      <h2 class="text-2xl font-bold text-purple-400 mb-4">من أنا</h2>
-      <p class="text-sm text-gray-300 leading-loose">
-        مطوّر منصات تعليمية، مدرّب برمجة وأمن سيبراني. أعمل على إنتاج محتوى رقمي احترافي يجمع بين التقنية والتفاعل وتجربة المستخدم العصرية. هدفي هو بناء منظومات تعليمية مرنة وذكية.
-      </p>
-    </div>
-  </section>
+<!-- من أنا -->
+<section id="about" class="py-20 px-6 fade-in">
+  <div class="max-w-3xl mx-auto glass p-8 rounded-xl text-center">
+    <h2 class="text-2xl font-bold text-purple-400 mb-4">من أنا</h2>
+    <p class="text-sm text-gray-300 leading-loose">
+      مطوّر منصات تعليمية، مدرّب برمجة وأمن سيبراني. أعمل على إنتاج محتوى رقمي احترافي يجمع بين التقنية والتفاعل وتجربة المستخدم العصرية. هدفي هو بناء منظومات تعليمية مرنة وذكية.
+    </p>
+  </div>
+</section>
 
-  <!-- المشاريع -->
-  <section id="projects" class="py-20 px-6 fade-in">
-    <div  class="max-w-5xl mx-auto text-center">
-      <h2 class="text-2xl font-bold text-indigo-400 mb-8">📂 المشاريع البارزة</h2>
-      <div id="contain"  class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div id="card" class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
-          <h3 class="text-lg font-semibold mb-2">نظام تسجيل دخول ديناميكي</h3>
-          <p class="text-sm text-gray-300 mb-3">واجهة عصرية + قاعدة بيانات + حماية كاملة باستخدام Flask وTailwind.</p>
-          <a id="a" href="https://github.com/ghaithhasan963/login-" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على GitHub →</a> <div class="mt-2"></div>
-          <a href="https://login-1fql.onrender.com/" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على الويب →</a>
-        </div>
-      </div>
+<!-- المشاريع -->
+<section id="projects" class="py-20 px-6 fade-in">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-2xl font-bold text-indigo-400 mb-8">📂 المشاريع البارزة</h2>
+    
+    <!-- المشروع 1 -->
+    <div class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition mb-8">
+      <h3 class="text-lg font-semibold mb-2">نظام تسجيل دخول ديناميكي</h3>
+      <p class="text-sm text-gray-300 mb-3">واجهة عصرية + قاعدة بيانات + حماية كاملة باستخدام Flask وTailwind.</p>
+      <a href="https://github.com/ghaithhasan963/login-dashboard-app" target="_blank" class="text-blue-400 hover:underline text-sm">عرض على GitHub →</a><br>
+      <a href="https://login-1fql.onrender.com/" target="_blank" class="text-blue-400 hover:underline text-sm">عرض على الويب →</a>
     </div>
-  </section><hr>
-    <section id="projects" class="py-20 px-6 fade-in">
-    <div  class="max-w-5xl mx-auto text-center">
-     <h2 class="text-2xl font-bold text-indigo-400 mb-8"></h2> 
-       <div  id="contain"class="grid grid-cols-1 md:grid-cols-2 gap-6" >
-         <div  id="card" class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
-           <h3 class="text-lg font-semibold mb-2">موقع لتعليم الامن السيبراني باسلوب ديناميكي تففاعلي</h3>
-           <p class="text-sm text-gray-300 mb-3">واجهة عصرية + قاعدة بيانات + Flask+js.</p>
-           <a href="https://github.com/ghaithhasan963/accademy-shadow-hacking" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على Githup→</a> <div class="mt-2"></div>
-          <a href="https://accademy-shadow-hacking.onrender.com/" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على الويب →</a>
-        </div>
-      </div>
-    </div>
-  </section><hr>
-      <section id="projects" class="py-20 px-6 fade-in">
-    <div  class="max-w-5xl mx-auto text-center">
-     <h2 class="text-2xl font-bold text-indigo-400 mb-8"></h2>
-      <div id="contain"  class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div id="card" class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
-          <h3 class="text-lg font-semibold mb-2">موقع لتعليم برمجة الويب </h3>
-          <p class="text-sm text-gray-300 mb-3">واجهة عصرية +react + veu.js +تصميم ديناميكي+js.</p>
-          <a href="https://github.com/ghaithhasan963/web_programming_academy" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على GitHub →</a> <div class="mt-2"></div>
-          <a href="https://web-programming-academy-m5rv.onrender.com" class="text-blue-400 hover:underline text-sm" target="_blank">عرض على الويب →</a>
-        </div>
-      </div>
-    </div>
-  </section><hr>
-  </section>
-  <br><br><br><br><br><br>
-  <!-- إحصائيات -->
-  <section class="py-20 px-6 fade-in text-center">
-    <h2 class="text-xl font-bold text-purple-400 mb-6">📊 إنجازاتي التقنية</h2>
-    <div class="grid grid-cols-3 gap-4 justify-center text-white text-sm max-w-3xl mx-auto">
-      <div>
-        <p class="text-3xl font-bold" id="counter-projects">0+</p>
-        <p class="mt-2 text-gray-400">مشروع منشور</p>
-      </div>
-      <div>
-        <p class="text-3xl font-bold" id="counter-clients">0+</p>
-        <p class="mt-2 text-gray-400">طالب مدرّب</p>
-      </div>
-      <div>
-        <p class="text-3xl font-bold" id="counter-years">0+</p>
-        <p class="mt-2 text-gray-400">سنة خبرة</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- تواصل معي -->
-  <section id="contact" class="py-20 px-6 fade-in">
-    <div class="max-w-xl mx-auto text-center glass p-8 rounded-xl">
-      <h2 class="text-xl font-bold mb-4 text-purple-400">📞 تواصل معي</h2>
-      <p class="text-sm text-gray-300 mb-4">لأي تعاون أو مشروع، يمكن التواصل عبر:</p>
-      <div class="flex justify-center gap-4 text-sm">
-        <a href="mailto:your@email.com" class="text-blue-400 hover:underline">📧 بريد إلكتروني</a>
-        <a href="https://github.com/ghaithhasan963" class="text-blue-400 hover:underline">💻 GitHub</a>
-         <a href="https://wa.me/963934309818" class="text-blue-400 hover:underline">رقم الهاتف📞</a>
-      </div>
+    <!-- المشروع 2 -->
+    <div class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition mb-8">
+      <h3 class="text-lg font-semibold mb-2">أكاديمية الظل للأمن السيبراني</h3>
+      <p class="text-sm text-gray-300 mb-3">واجهة تفاعلية + قاعدة بيانات + Flask + JavaScript.</p>
+      <a href="https://github.com/ghaithhasan963/academy-shadow-hacking" target="_blank" class="text-blue-400 hover:underline text-sm">عرض على GitHub →</a><br>
+      <a href="https://academy-shadow-hacking.onrender.com/" target="_blank" class="text-blue-400 hover:underline text-sm">عرض على الويب →</a>
     </div>
-  </section>
 
-  <script>
-    ScrollReveal().reveal('.fade-in', {
-      distance: '20px',
-      origin: 'bottom',
-      duration: 1000,
-      easing: 'ease-in-out',
-      reset: false
-    });
+    <!-- المشروع 3 -->
+    <div class="glass p-6 rounded-lg shadow hover:scale-[1.02] transition">
+      <h3 class="text-lg font-semibold mb-2">موقع لتعليم برمجة الويب</h3>
+      <p class="text-sm text-gray-300 mb-3">واجهة عصرية باستخدام React + Vue.js + تصميم ديناميكي.</p>
+      <a href="https://github.com/ghaithhasan963/web_programming_academy" target="_blank" class="text-blue-400 hover:underline text-sm">عرض على GitHub →</a><br>
+      <a href="https://web-programming-academy-m5rv.onrender.com" target="_blank" class="text-blue-400 hover:underline text-sm">عرض على الويب →</a>
+    </div>
 
-    window.onload = () => {
-      document.getElementById('toast').classList.remove('hidden');
+  </div>
+</section>
+
+<!-- الإحصائيات -->
+<section class="py-20 px-6 fade-in text-center">
+  <h2 class="text-xl font-bold text-purple-400 mb-6">📊 إنجازاتي التقنية</h2>
+  <div class="grid grid-cols-3 gap-4 justify-center text-white text-sm max-w-3xl mx-auto">
+    <div><p class="text-3xl font-bold" id="counter-projects">0+</p><p class="mt-2 text-gray-400">مشروع منشور</p></div>
+    <div><p class="text-3xl font-bold" id="counter-clients">0+</p><p class="mt-2 text-gray-400">طالب مدرّب</p></div>
+    <div><p class="text-3xl font-bold" id="counter-years">0+</p><p class="mt-2 text-gray-400">سنة خبرة</p></div>
+  </div>
+</section>
+
+<!-- التواصل -->
+<section id="contact" class="py-20 px-6 fade-in">
+  <div class="max-w-xl mx-auto text-center glass p-8 rounded-xl">
+    <h2 class="text-xl font-bold mb-4 text-purple-400">📞 تواصل معي</h2>
+    <p class="text-sm text-gray-300 mb-4">لأي تعاون أو مشروع، يمكن التواصل عبر:</p>
+    <div class="flex justify-center gap-4 text-sm">
+      <a href="mailto:ghaithhasan963@email.com" class="text-blue-400 hover:underline">📧 بريد إلكتروني</a>
+      <a href="https://github.com/ghaithhasan963" class="text-blue-400 hover:underline">💻 GitHub</a>
+      <a href="https://wa.me/963934309818" class="text-blue-400 hover:underline">📱 واتساب مباشر</a>
+    </div>
+  </div>
+</section>
+
+<!-- سكريبت التأثيرات -->
+<script>
+  ScrollReveal().reveal('.fade-in', { distance: '20px', origin: 'bottom', duration: 1000, easing: 'ease-in-out', reset: false });
+
+  window.onload = () => {
+    let counters = { projects: 12, clients: 50, years: 5 };
+    for (let key in counters) {
+      let val = 0;
+      let el = document.getElementById(`counter-${key}`);
+      let interval = setInterval(() => {
+        val++;
+        el.textContent = val + '+';
+        if (val >= counters[key]) clearInterval(interval);
+      }, 100);
+    }
+  };
+
+  const texts = [
+    "Full Stack Developer",
+    "Cybersecurity Instructor",
+    "Educator & Strategist"
+  ];
+  let i = 0, j = 0;
+
+  function typeEffect() {
+    if (j < texts[i].length) {
+      document.getElementById("typewriter").textContent += texts[i][j];
+      j++;
+      setTimeout(typeEffect, 100);
+    } else {
       setTimeout(() => {
-        document.getElementById('toast').classList.add('hidden');
-      }, 5000);
-
-      let counters = {
-        projects: 12,
-        clients: 50,
-        years: 5
-      };
-      for (let key in counters) {
-        let val = 0;
-        let el = document.getElementById(`counter-${key}`);
-        let interval = setInterval(() => {
-          val++;
-          el.textContent = val + '+';
-          if (val >= counters[key]) clearInterval(interval);
-        }, 100);
-      }
-    };
-
-    const texts = ["Full Stack Developer", "Cybersecurity Instructor", "Educator & Strategist"];
-    let i = 0, j = 0;
-    function typeEffect() {
-      if (j < texts[i].length) {
-        document.getElementById("typewriter").textContent += texts[i][j];
-        j++;
-        setTimeout(typeEffect, 100);
-      } else {
-        setTimeout(() => {
-          j = 0;
-          i = (i + 1) % texts.length
-                document.getElementById("typewriter").textContent = "";
-      typeEffect();
-    }, 2000);
+        j = 0;
+        i = (i + 1) % texts.length;
+        document.getElementById("typewriter").textContent = "";
+        typeEffect();
+      }, 2000);
+    }
   }
-}
-typeEffect();
+  typeEffect();
 </script>
 
 </body>

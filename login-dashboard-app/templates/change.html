@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>تغيير كلمة المرور</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+  <form method="POST" class="bg-white p-6 rounded shadow w-80 font-sans">
+    <h2 class="text-lg text-center mb-4 font-bold text-blue-700">🔁 تغيير كلمة المرور</h2>
+
+    {% if error %}
+    <p class="text-red-500 text-sm text-center mb-2">{{ error }}</p>
+    {% endif %}
+    {% if success %}
+    <p class="text-green-600 text-sm text-center mb-2">{{ success }}</p>
+    {% endif %}
+
+    <input type="password" name="old_password" placeholder="كلمة المرور القديمة" required class="mb-3 px-3 py-2 border rounded w-full">
+    <input type="password" name="new_password" placeholder="كلمة المرور الجديدة" required class="mb-3 px-3 py-2 border rounded w-full">
+    <button type="submit" class="bg-blue-500 text-white py-2 rounded w-full hover:bg-blue-600">تحديث</button>
+    <p class="text-center mt-3 text-sm"><a href="/dashboard" class="text-blue-600 hover:underline">العودة</a></p>
+  </form>
+</body>
+</html>
